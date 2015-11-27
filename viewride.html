@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+		<link rel="stylesheet" type="text/css" media="all" href="css/register.css">
+		<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+		<script type="text/javascript" src="js/jquery-1.6.js" ></script>
+		<script type="text/javascript" src="js/cufon-yui.js"></script>
+		<script type="text/javascript" src="js/cufon-replace.js"></script>  
+		<script type="text/javascript" src="js/Vegur_300.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_700.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_400.font.js"></script>
+		<script type="text/javascript" src="js/atooltip.jquery.js"></script>
+		
+	</head>
+	<body id="page5">
+		<div class="main">
+<!--header -->
+			<header>
+				<div class="wrapper">
+					<h1><a href="index.html" id="logo">hopIn</a></h1>
+					<ul id="menu1">
+						<li><a href="index.html"><span>LogOut</span></a></li>
+					</ul>
+				</div>
+				<nav>
+					<ul id="menu">
+						<li><a href="index.html"><span>Home</span></a></li>
+						<li><a href="#"><span>About Us</span></a></li>
+						<li><a href="#"><span>How It Works</span></a></li>
+						<li class="active"><a href="Services2.html"><span>Services</span></a></li>
+						<li class="last"><a href="Contacts.html"><span>Contact Us</span></a></li>
+					</ul>
+				</nav>
+			</header>
+<!--header end-->
+<!--content -->
+			
+		</div>
+		
+		
+		
+		<div id="col">
+		<div id="form">
+		<section id="container">
+			<span class="chyron"><em></em></span>
+			<h2><span class="color1" text-align="center">Ride Information</span></h2>
+			<form>
+				<div name="contact" id="contact-form" method="post" action="#">
+					<div id="wrapping" class="clearfix">
+						<section id="aligned">
+				
+						<p><h3><a href="#"><span class="color1">Carpool Owner Name: </span></a><h3></p>
+						<p><h3><span class="color1">From: </span></h3></p>
+						<p><h3><span class="color1">To: </span></h3></p>
+						<p><h3><span class="color1">Co-passengers: </span></h3></p>
+						<!--list of passengers--><p><h4><span class ="color1"><li></li></span></h3></p>
+						<p><h3><span class="color1">Number Of Vacant Seats: </span></h3></p>
+				
+						</section>
+					</div>
+
+		
+			</form>
+		</section>
+	</div>
+	</div>
+	</section>
+	
+<!--footer end-->
+		
+		<script type="text/javascript"> Cufon.now(); </script>
+		<script>
+<!--To ensure the passwords entered are matching-->
+	function validate_pass()
+	{
+		var elem1 = document.getElementById("password");
+		var elem2 = document.getElementById("conpassword");
+		var txt1 = elem1.value;
+		var txt2 = elem2.value;
+		<!-- Before validating , ensure that the entered password is between 7 to 15 characters and contains atleast one numerical digit and special character.-->
+		
+		if(txt1 != txt2)
+		{
+			alert("Passwords not matching! Try again!!");
+			elem1.focus();
+			elem2.focus();
+			return false;
+		} 
+		else 
+		{
+			return true;
+		}
+		
+	}
+	
+</script>
+	</body>
+</html>

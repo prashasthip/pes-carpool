@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+		<script type="text/javascript" src="js/jquery-1.6.js" ></script>
+		<script type="text/javascript" src="js/cufon-yui.js"></script>
+		<script type="text/javascript" src="js/cufon-replace.js"></script>  
+		<script type="text/javascript" src="js/Vegur_300.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_700.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_400.font.js"></script>
+		<script type="text/javascript" src="js/tms-0.3.js"></script>
+		<script type="text/javascript" src="js/tms_presets.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/atooltip.jquery.js"></script>
+		
+	</head>
+	<body id="page1">
+		<div class="main">
+
+			<header>
+				<div class="wrapper">
+					<h1><a href="index.html" id="logo">Hop In</a></h1>
+					
+				</div>
+				<nav>
+					<ul id="menu">
+						<li class="active"><a href="index.html"><span>Home</span></a></li>
+						<li><a href="About.html"><span>About Us</span></a></li>
+						<li><a href="How.html"><span>How It Works</span></a></li>
+						<li><a href="register.html"><span>Register</span></a></li>
+						<li class="last"><a href="Contacts.html"><span>Contact Us</span></a></li>
+					</ul>
+				</nav>
+				<div id="slider">
+					<ul class="items">
+						<li>
+							<img src="images/img1.jpg" alt="">
+							<div class="banner">
+								<span class="title"><span >Commute Easy</span><span >Commute</span><span>In A Car</span></span>
+								<p class="color2">Wanna Hitch A Ride? Just Pool In!</p>
+								<a href="login.html" class="button1">Sign In</a>
+							</div>
+						</li>
+						<li>
+							<img src="images/img2.jpg" alt="">
+							<div class="banner">
+								<span class="title"><span class="color2">Lets Ride</span><span class="color2"></span><span>Together</span></span>
+								<p>Reduce Your Carbon Footprint, Increase Life</p>
+								<a href="login.html" class="button1">Sign In</a>
+							</div>
+						</li>
+						<li>
+							<img src="images/img3.jpg" alt="">
+							<div class="banner">
+								<span class="title"><span class="color2">Make</span><span class="color2">New</span ><span class="color2">Friends!</span></span>
+								<p class="color2">Make Every Commute Fun</p>
+								<a href="login.html" class="button1">Sign In</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</header>
+
+			<article id="content"><div class="ic"></div>
+				<div class="wrapper">
+					<div class="col1 marg_right1">
+						<h2>Friendship</h2>
+						<p>Thousands of friendship made on the road!</p>
+					</div>
+					<div class="col1 marg_right1">
+						<h2>Environment</h2>
+						<p>Tonnes and tonnes  of carbon emissions saved</p>
+					</div>
+					<div class="col1 marg_right1">
+						<h2>Resources</h2>
+						<p>Save thousands of liters of gas</p>
+					</div>
+					<div class="col1">
+						<h2>Money</h2>
+						<ul class="list1">
+							<p>Cut Costs; Save By Sharing </p>
+						</ul>
+					</div>
+				</div>
+			</article>
+		</div>
+		<div class="bg1">
+			<div class="main">
+				<article id="content2">
+					<div class="wrapper">
+						<div class="col2 marg_right1">
+							<h3>FREQUENT RIDES</h3>
+							<div class="wrapper">
+								<figure class="left marg_right1"></figure>
+								<p class="color2 pad_bot1">Check out the ones in your route..</p>
+								<ul class="list1">
+							<li><a href="#">JAYANAGAR -> PESIT</a></li>
+							<li><a href="#">JP NAGAR  -> PESIT</a></li>
+							<li><a href="#">KORAMANGALA -> PESIT </a></li>
+							<li><a href="#">SHIVAJINAGAR -> PESIT</a></li>
+						</ul>
+							</div>
+							</br>
+							<a href="#" class="button1">View More Rides</a>
+						</div>
+						
+						</div>
+					</div>
+				</article>
+			</div>
+		</div>
+		<div class="main">
+
+			<footer>
+				<ul id="icons" >
+				
+					<li class="first" id="fol">Follow Us:</li>
+					<li><a href="#" class="normaltip" title="Facebook"><img src="images/icon1.jpg" alt=""></a></li>
+					<li><a href="#" class="normaltip" title="Twitter"><img src="images/icon2.jpg" alt=""></a></li>
+					
+				</ul>
+				<div id="copy">SE PROJECT &copy; 2014 <br></a><br></div>
+				
+			</footer>
+
+		</div>
+		<script type="text/javascript"> Cufon.now(); </script>
+		<script>
+			$(window).load(function(){
+				$('#slider')._TMS({
+					banners:true,
+					waitBannerAnimation:false,
+					preset:'diagonalFade',
+					easing:'easeOutQuad',
+					pagination:true,
+					duration:400,
+					slideshow:8000,
+					bannerShow:function(banner){
+						banner.css({marginRight:-500}).stop().animate({marginRight:0}, 600)
+					},
+					bannerHide:function(banner){
+						banner.stop().animate({marginRight:-500}, 600)
+					}
+					})
+			})
+		</script>
+	</body>
+</html>

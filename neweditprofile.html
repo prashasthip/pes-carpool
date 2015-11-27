@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+		<link rel="stylesheet" type="text/css" media="all" href="css/register.css">
+		<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+		<script type="text/javascript" src="js/jquery-1.6.js" ></script>
+		<script type="text/javascript" src="js/cufon-yui.js"></script>
+		<script type="text/javascript" src="js/cufon-replace.js"></script>  
+		<script type="text/javascript" src="js/Vegur_300.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_700.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_400.font.js"></script>
+		<script type="text/javascript" src="js/atooltip.jquery.js"></script>
+		
+	</head>
+	<body id="page5">
+		<div class="main">
+<!--header -->
+			<header>
+				<div class="wrapper">
+					<h1><a href="index.html" id="logo">hopIn</a></h1>
+					<ul id="menu1">
+						<li><a href="index.html"><span>LogOut</span></a></li>
+					</ul>
+				</div>
+				<nav>
+					<ul id="menu">
+						<li><a href="index.html"><span>Home</span></a></li>
+						<li><a href="#"><span>About Us</span></a></li>
+						<li><a href="#"><span>How It Works</span></a></li>
+						<li class="active"><a href="Services2.html"><span>Services</span></a></li>
+						<li class="last"><a href="Contacts.html"><span>Contact Us</span></a></li>
+					</ul>
+				</nav>
+			</header>
+<!--header end-->
+<!--content -->
+			
+		</div>
+		
+		
+		
+		<div id="col">
+		<div id="form">
+		<section id="container">
+		<span class="chyron"><em></em></span>
+		<h2 id="h2">Edit profile</h2>
+		<form>
+			<div name="contact" id="contact-form" method="post" action="#">
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+			
+		<input type="text" name="name" id="name" placeholder="Your name"   tabindex="1" class="txtinput" required>
+		<input type="text" name="usn" id="usn" placeholder="USN"   tabindex="1" class="txtinput" required>
+			<input type="email" name="email" id="email" placeholder="E-mail Address"   tabindex="2" class="txtinput" required>
+		
+			<input type="number" name="sem" id="sem" placeholder="Semester"   tabindex="1" class="txtinput" required>
+			<input type="text" name="address" id="address" placeholder="Address"   tabindex="1" class="txtinput" required>
+			<input type="text" name="telephone" id="telephone" placeholder="Phone number" tabindex="1" class="txtinput" required>
+			<input type="text" name="pick" id="pick" placeholder="Preferred Pick-Up Point "   tabindex="1" class="txtinput" required>
+			<textarea name="prefer" id="prefer" placeholder="Preferences" tabindex="5" class="txtblock" ></textarea>
+
+		
+		</section>
+					</div>
+<section id="buttons">
+			<input type="reset" name="reset" id="resetbtn" class="resetbtn" value="RESET">
+			<input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="EDIT">
+			<br style="clear:both;">
+		</section>
+		
+			</form>
+		</section>
+	</div>
+	</div>
+	</section>
+	
+<!--footer end-->
+		
+		<script type="text/javascript"> Cufon.now(); </script>
+		<script>
+<!--To ensure the passwords entered are matching-->
+	function validate_pass()
+	{
+		var elem1 = document.getElementById("password");
+		var elem2 = document.getElementById("conpassword");
+		var txt1 = elem1.value;
+		var txt2 = elem2.value;
+		<!-- Before validating , ensure that the entered password is between 7 to 15 characters and contains atleast one numerical digit and special character.-->
+		
+		if(txt1 != txt2)
+		{
+			alert("Passwords not matching! Try again!!");
+			elem1.focus();
+			elem2.focus();
+			return false;
+		} 
+		else 
+		{
+			return true;
+		}
+		
+	}
+	
+</script>
+	</body>
+</html>

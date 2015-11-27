@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+		<link rel="stylesheet" type="text/css" media="all" href="css/login.css">
+		<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+		<script type="text/javascript" src="js/jquery-1.6.js" ></script>
+		<script type="text/javascript" src="js/cufon-yui.js"></script>
+		<script type="text/javascript" src="js/cufon-replace.js"></script>  
+		<script type="text/javascript" src="js/Vegur_300.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_700.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_400.font.js"></script>
+		<script type="text/javascript" src="js/atooltip.jquery.js"></script>
+		<script>
+			function check(){
+				//alert("entered");
+				var email = document.getElementById("email");
+				var password = document.getElementById("password");
+				xmlhttp = new XMLHttpRequest();
+				//alert("got request");
+				xmlhttp.open("GET","php/login.php?email=" +email.value +"&password=" +password.value ,true);
+				//alert(email.value)
+				//alert(usn.value);
+				//alert("opened file! sending readystate");
+				xmlhttp.onreadystatechange=function(){
+					//alert("entered ready state");
+					console.log(xmlhttp.readyState+" "+xmlhttp.status)
+						if (xmlhttp.readyState==4 && xmlhttp.status==200)
+						{
+							var response = xmlhttp.responseText;
+							console.log(response)
+							if(response.trim()==='error'){
+								document.getElementById("message").innerHTML = "Login Credentials are wrong! ";
+								}
+							else if(response.trim()==='no_error'){
+								//alert("invalid");
+								window.location.href = "newindex2.html";
+							}
+								
+						}
+					}
+					xmlhttp.send();
+					//alert("exit ready state");
+			}
+	
+	</script>
+	</head>
+	<body id="page5">
+		<div class="main">
+<!--header -->
+			<header>
+				<div class="wrapper">
+					<h1><a href="index.html" id="logo">hopIn</a></h1>
+					<form id="search" method="post">
+						<fieldset>
+							<div class="bg"><input class="input" type="text" value="Search"  onblur="if(this.value=='') this.value='Search'" onFocus="if(this.value =='Search' ) this.value=''" ></div>
+						</fieldset>
+					</form>
+				</div>
+				<nav>
+					<ul id="menu">
+						<li><a href="index.html"><span>Home</span></a></li>
+						<li><a href="#"><span>About Us</span></a></li>
+						<li><a href="#"><span>How It Works</span></a></li>
+						<li><a href="register.html"><span>Register</span></a></li>
+						<li class="last"><a href="Contacts.html"><span>Contact Us</span></a></li>
+					</ul>
+				</nav>
+			</header>
+<!--header end-->
+<!--content -->
+			
+		</div>
+		<div id="col">
+		<div id="form">
+		<section id="container">
+		<span class="chyron"><em></em></span>
+		<h2 id="h2">Sign In</h2>
+		<form name="contact" id="contact-form">
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+			
+		
+			<input type="email" name="email" id="email" placeholder="Your E-mail Address"  tabindex="2" class="txtinput" required>
+		
+			<input type="password" name="password" id="password" placeholder="Your Password" autocomplete="off" tabindex="1" class="txtinput" required><a href="forgot.html" id="forg" class="forg" >Forgot your password?</a></label>
+		
+			
+			</section>
+			</div>
+<section id="buttons">
+			
+			<input type="button" name="submit" id="submitbtn" class="btn btn-primary" tabindex="7" value="Log In" onclick="check();">
+			<br style="clear:both;">
+		</section>
+		<b id="message"style="color:red"></b>
+		</form>
+	</section>
+	</div>
+	
+		
+<!--footer end-->
+		
+		<script type="text/javascript"> Cufon.now(); </script>
+		
+	</body>
+</html>

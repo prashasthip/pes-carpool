@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="all">
+		<link rel="stylesheet" type="text/css" media="all" href="css/register.css">
+		<link rel="stylesheet" href="css/layout.css" type="text/css" media="all">
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+		<script type="text/javascript" src="js/jquery-1.6.js" ></script>
+		<script type="text/javascript" src="js/cufon-yui.js"></script>
+		<script type="text/javascript" src="js/cufon-replace.js"></script>  
+		<script type="text/javascript" src="js/Vegur_300.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_700.font.js"></script>
+		<script type="text/javascript" src="js/PT_Sans_400.font.js"></script>
+		<script type="text/javascript" src="js/atooltip.jquery.js"></script>
+		
+		<script>
+		var flag = false;
+			function check(){
+				//alert("entered");
+				var email = document.getElementById("email");
+				var usn = document.getElementById("usn");
+				xmlhttp = new XMLHttpRequest();
+				//alert("got request");
+				xmlhttp.open("GET","php/check.php?email=" +email.value +"&usn=" +usn.value ,true);
+				//alert(email.value)
+				//alert(usn.value);
+				//alert("opened file! sending readystate");
+				xmlhttp.onreadystatechange=function(){
+					//alert("entered ready state");
+					console.log(xmlhttp.readyState+" "+xmlhttp.status)
+						if (xmlhttp.readyState==4 && xmlhttp.status==200)
+						{
+							var response = xmlhttp.responseText;
+							console.log(response)
+							if(response.trim()==='valid'){
+								document.getElementById("invalid").innerHTML = "";
+								document.getElementById("valid").innerHTML = "Valid User.";
+									flag = true;
+									//alert("works");
+								}
+							else if(response.trim()==='invalid'){
+								//alert("invalid");
+								document.getElementById("valid").innerHTML = "";
+								document.getElementById("invalid").innerHTML = "InValid User.";
+									flag = false;
+								}
+								
+						}
+					}
+					xmlhttp.send();
+					//alert("exit ready state");
+			}
+			<!--To ensure the passwords entered are matching-->
+	function validate()
+	{
+		var elem1 = document.getElementById("password");
+		var elem2 = document.getElementById("conpassword");
+		var txt1 = elem1.value;
+		var txt2 = elem2.value;
+		<!-- Before validating , ensure that the entered password is between 7 to 15 characters and contains atleast one numerical digit and special character.-->
+		
+		if(txt1 != txt2)
+		{
+			alert("Passwords not matching! Try again!!");
+			elem1.focus();
+			elem2.focus();
+			//return false;
+		} 
+		
+	}
+	 function button_click()
+		{
+			
+			if(!(/\S+@\S+\.\S+/.test(document.getElementById('email').value)))
+			{
+				document.getElementById("message").innerHTML = "Email id not valid."
+			}
+			else if(!(flag))
+			{
+				document.getElementById("message").innerHTML = "Not a valid user."
+			}
+			else
+			{
+				send_to_server();
+			}
+		}
+		
+            // Sends information to server via AJAX. 
+		function send_to_server()
+		{
+				var usn = document.getElementById("usn").value;
+				var name = document.getElementById('name').value;
+				var sem = document.getElementById('sem').value;
+				var email = document.getElementById('email').value;
+				var password = document.getElementById("password").value;
+				var telephone = document.getElementById("telephone").value;
+				var address = document.getElementById('address').value;
+				var own = document.getElementById('own').value;
+				var pick = document.getElementById('pick').value;
+				var prefer = document.getElementById('prefer').value;
+				var radios = document.getElementsByName('sex');
+				for (var i = 0, length = radios.length; i < length; i++) {
+					if (radios[i].checked) {
+						var gender = radios[i].value;
+						break;
+					}
+				}
+				xmlHTTP = new XMLHttpRequest();
+				xmlHTTP.open("POST","php/signup.php",true);
+				xmlHTTP.setRequestHeader("Content-type", "application/x-www-form-urlencoded");      
+				xmlHTTP.send("usn=" + usn + "&name=" + name + "&sem=" + sem + "&email=" + email + "&password=" + password + "&gender=" + gender + "&telephone=" + telephone +"&address=" + address +"&own=" + own +"&pick=" + pick +"&prefer=" + prefer);
+				xmlHTTP.onreadystatechange=change;
+		}
+		
+		// Checking for server response
+		function change()
+		{
+			console.log(xmlHTTP.readyState);
+			console.log(xmlHTTP.status);
+			if(xmlHTTP.readyState===4 && xmlHTTP.status===200) 
+            {    alert("entered here")
+                var check=xmlHTTP.responseText;
+                console.log(check);    
+                if(check.trim() ==='no_error')
+				{
+                   
+					window.location.href = "newindex2.html";
+				}
+                else if(check.trim() ==='error')
+                    document.getElementById("message").innerHTML = "Please re-enter the details.";
+			}
+		}    
+            
+	
+		</script>
+	</head>
+	<body id="page5">
+		<div class="main">
+<!--header -->
+			<header>
+				<div class="wrapper">
+					<h1><a href="index.html" id="logo">hopIn</a></h1>
+					
+				</div>
+				<nav>
+					<ul id="menu">
+						<li><a href="index.html"><span>Home</span></a></li>
+						<li><a href="About.html"><span>About Us</span></a></li>
+						<li><a href="How.html"><span>How It Works</span></a></li>
+						<li class="active"><a href="register.html"><span>Register</span></a></li>
+						<li class="last"><a href="Contacts.html"><span>Contact Us</span></a></li>
+					</ul>
+				</nav>
+			</header>
+<!--header end-->
+<!--content -->
+			
+		</div>
+		
+		
+		
+		<div id="col">
+		<div id="form">
+		<section id="container">
+		<span class="chyron"><em></em></span>
+		<h2 id="h2">Account Information</h2>
+		<form onsubmit="return validate_pass();">>
+			<div name="contact" id="contact-form" method="post" action="#">
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+			
+		
+			<input type="email" name="email" id="email" placeholder="E-mail Address"  tabindex="2" class="txtinput" required>
+			<input type="text" name="usn" id="usn" placeholder="USN"  tabindex="1" class="txtinput" required>
+				&nbsp;&nbsp;<b id="valid" style="color:red;">
+						</b>
+						<b id="invalid" style="color:red;">
+						</b>
+			<input type="password" name="password" id="password" placeholder="Password"  autocomplete="off" tabindex="1" onfocus= "check();" class="txtinput" required>
+			<input type="password" name="conpassword" id="conpassword" placeholder="Confirm Password"   autocomplete="off" tabindex="1" class="txtinput" required>
+		
+			
+			</section>
+			</div>
+
+		
+	
+	
+	
+		<span class="chyron"><em></em></span>
+		<h2 id="h2">Personal Information</h2>
+		
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+			<input type="text" name="name" id="name" placeholder="Full Name"   tabindex="1" onfocus= "validate();" class="txtinput" required>
+		
+			<div class ="control-group">
+                    <label class="control-label"></label>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="sex" id="sex" value="m" checked>
+                    Male
+                    &nbsp;&nbsp;
+                    <input type="radio" name="sex" value="f">
+                    Female
+                    
+                </div>
+		<input type="text" name="sem" id="sem" placeholder="Semester"   tabindex="1" class="txtinput" required>
+			
+		
+			<input type="text" name="telephone" id="telephone" placeholder="Phone number" tabindex="4" class="txtinput" required>
+		
+			<textarea name="address" id="address" placeholder="Address" tabindex="5" class="txtblock" required></textarea>
+			
+		</section>
+		</div>
+		
+		<span class="chyron"><em></em></span>
+		<h2 id="h2">Upload Your Photo</h2>
+		<input type="file" name="pic" accept="image/*" required>
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+			</section>
+		</div>
+		<span class="chyron"><em></em></span>
+		<h2 id="h2">Pool Related Information</h2>
+		
+		<div id="wrapping" class="clearfix">
+			<section id="aligned">
+			<input type="text" name="own" id="own" placeholder="Do you own a car? (Yes/No) "   tabindex="1" class="txtinput" required>
+			<input type="text" name="pick" id="pick" placeholder="Preferred Pick-Up Point "   tabindex="1" class="txtinput" required>
+		
+			
+		
+			
+		
+			<textarea name="prefer" id="prefer" placeholder="Preferences" tabindex="5" class="txtblock" required></textarea>
+			
+<section id="buttons">
+			<input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset">
+			<input type="button" name="submit" id="submitbtn" class="btn btn-primary" tabindex="7" value="Submit this!" onclick="button_click();">
+			<br style="clear:both;">
+		</section>
+		<b id="message"style="color:red"></b>
+		</form>
+	</section>
+	</div>
+	</div>
+	</section>
+	
+<!--footer end-->
+		
+		<script type="text/javascript"> Cufon.now(); </script>
+
+	</body>
+</html>
